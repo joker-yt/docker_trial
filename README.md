@@ -5,6 +5,11 @@
 2. create and run container from image. 
 > \>docker run --rm -it \<image name\>
 
+## docker network
+You need to create original network if it is necessary to resolve naming.  
+see the link below  
+[Dockerのブリッジ・ネットワークでのコンテナ間名前解決がどうなっているのか見てみた](https://qiita.com/tsukapah/items/677b1f5c89dcbe520344)
+
 ## docker volume
 see the link below  
 [Docker、ボリューム(Volume)について真面目に調べた](https://qiita.com/gounx2/items/23b0dc8b8b95cc629f32)
