@@ -5,6 +5,10 @@
 2. create and run container from image. 
 > \>docker run --rm -it \<image name\>
 
+## docker volume
+see the link below  
+[Docker、ボリューム(Volume)について真面目に調べた](https://qiita.com/gounx2/items/23b0dc8b8b95cc629f32)
+
 ## rocketchat, mongodb, hubot with docker
 see the link below  
 [Rocketchat Official](https://rocket.chat/docs/installation/docker-containers/docker-compose/)  
