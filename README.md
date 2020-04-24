@@ -5,6 +5,11 @@
 2. create and run container from image. 
 > \>docker run --rm -it \<image name\>
 
+## rocketchat, mongodb, hubot with docker
+see the link below  
+[Rocketchat Official](https://rocket.chat/docs/installation/docker-containers/docker-compose/)  
+[Github yml](https://github.com/RocketChat/Rocket.Chat/blob/develop/docker-compose.yml)
+
 ## Tips
 - should not use \-d option during debug  
 It's to see console log.
