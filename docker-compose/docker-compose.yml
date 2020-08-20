@@ -1,0 +1,17 @@
+version: "3"
+services: 
+    m1:
+        build: ./m1
+        image: ubuntu:18.04
+        container_name: m1_container
+        volumes: 
+            - ./m1/vol:/mnt
+
+    m2:
+        build: ./m2
+        image: ubuntu:18.04
+        container_name: m2_container
+        volumes: 
+            - ./m2/vol:/mnt
+
+# deploy?

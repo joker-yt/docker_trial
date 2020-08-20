@@ -23,5 +23,9 @@ see the link below
 - should not use \-d option during debug  
 It's to see console log.
 
+- management of containers  
+use portainer  
+[Portainerでらくらく！GUI docker](https://bbsakura.github.io/posts/begginers-guide-to-gui-docker/)
+
 ## troubleshooting
 - \--smallfile: removed mongo 4.2
