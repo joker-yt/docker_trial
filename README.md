@@ -27,5 +27,6 @@ It's to see console log.
 use portainer  
 [Portainerでらくらく！GUI docker](https://bbsakura.github.io/posts/begginers-guide-to-gui-docker/)
 
+docker run -d -p 9000:9000 -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer
 ## troubleshooting
 - \--smallfile: removed mongo 4.2
