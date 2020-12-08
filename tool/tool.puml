@@ -1,0 +1,59 @@
+@startuml
+
+
+ component "copyAllShared\nLibraries.sh" as copyshared <<stereotype>> {
+ }
+ note bottom of copyshared #Khaki
+copy all shared libraries into specified directory keeping path structure.
+
+> ./copyAllSharedLibraries.sh <target_dir> <dest_dir>
+# target is multiple executables in <target_dir>
+
+> ./copyAllSharedLibraries.sh <path to bin> <dest_dir>
+# target is specified single executable 
+ endnote
+
+' +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+ component "copyFile\nWithFullPath.sh" as copyfull <<stereotype>> {
+ }
+ note top of copyfull #Khaki
+> ./copyFileWithFullPath.sh <fname(full path)> <dir>
+copy <fname> under <dir> with full path.
+
+# e.g. copyFileWithFullPath.sh /usr/bin/strace ./lib
+# -> copy strace to ./lib/usr/bin/strace
+ endnote
+
+' +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+ component "isExecutable.sh" as exe <<stereotype>> {
+ }
+ note top of exe #Khaki
+> ./isExecutable.sh fname
+checkas if fname is executable or not
+ endnote
+ 
+' +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+ component "showSharedLibrariesNeeded.sh" as showneeded <<stereotype>> {
+ }
+ note top of showneeded #Khaki
+> ./showSharedLibrariesNeeded.sh fname
+display all shared libraries to be needed by target
+
+# e.g. ./showSharedLibrariesNeeded.sh `which strace`
+#/usr/lib/x86_64-linux-gnu/libunwind-ptrace.so.0
+#/usr/lib/x86_64-linux-gnu/libunwind-x86_64.so.8
+ endnote
+
+' +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+' =======================================================
+' construct image
+' =======================================================
+copyfull <.. copyshared : use
+exe <.. copyshared : use
+showneeded <.. copyshared : use
+
+@enduml

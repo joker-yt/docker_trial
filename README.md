@@ -9,6 +9,8 @@
 You need to create original network if it is necessary to resolve naming.  
 see the link below  
 [Dockerのブリッジ・ネットワークでのコンテナ間名前解決がどうなっているのか見てみた](https://qiita.com/tsukapah/items/677b1f5c89dcbe520344)
+- docker network ls
+- docker network inspect
 
 ## docker volume
 see the link below  
@@ -27,6 +29,27 @@ It's to see console log.
 use portainer  
 [Portainerでらくらく！GUI docker](https://bbsakura.github.io/posts/begginers-guide-to-gui-docker/)
 
+## "save" image, "export" container  
+in the both pattern, .tar file will be created.
+### save and load image
+``` 
+> docker save <image_name> > <tarfile name>.tar
+> docker load < <tarfile name>.tar
+``` 
+
+### export and import container
+```
+docker export <container name> > <tarfile name>.tar
+docker import <tarfile name>.tar - <repo name>:[tag name]
+```
+
 docker run -d -p 9000:9000 -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer
+
+## training
+
+## tool 
+
+<img src=tool/tool.png>
+
 ## troubleshooting
 - \--smallfile: removed mongo 4.2
