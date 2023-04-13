@@ -1,17 +1,26 @@
 version: "3"
-services: 
-    m1:
-        build: ./m1
-        image: ubuntu:18.04
-        container_name: m1_container
-        volumes: 
-            - ./m1/vol:/mnt
+services:
+  v1:
+    image: <image-name>
+#   build: <dir including Dockerfile> in case to build and use image 
+    volumes:
+      - <host dir or file path>:<container dir or file path>
+    command: tail -F /dev/null # to keep running
+    networks:
+      test_nw2:
+        ipv4_address: 192.168.7.2
+# to allow interactive login
+    stdin_open: true # docker run -i        
+    tty: true # docker run -t        
+# specify login user
+    user: "<user id>:<group id>"
+# add privilege
+    prikvileged: true
 
-    m2:
-        build: ./m2
-        image: ubuntu:18.04
-        container_name: m2_container
-        volumes: 
-            - ./m2/vol:/mnt
-
-# deploy?
+networks:
+  test_nw2:
+    driver: bridge
+# see "docker network inspect <network>" and IPAM entry
+    ipam:
+      config:
+        - subset: 192.168.7.0/24
