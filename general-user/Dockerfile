@@ -9,7 +9,7 @@ RUN apt install -y sudo vim iproute2 net-tools
 RUN apt install -y g++ cmake python3-minimal
 
 # to add general user with sudo primitive (-m, for creating home directory)
-# password is "test"
+	# password is "test"
 # ============================================
 RUN useradd -m $USERNAME 
 RUN echo $USERNAME:"test" | chpasswd
