@@ -1,6 +1,8 @@
 FROM ubuntu:18.04
 
+# password: test
 ENV USERNAME "testuser"
+ENV PASSWORD "test"
 
 RUN apt update
 RUN apt install -y sudo vim iproute2 net-tools
