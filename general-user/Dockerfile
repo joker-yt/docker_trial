@@ -1,6 +1,8 @@
 FROM ubuntu:18.04
 
+# password: 'test'
 ENV USERNAME "testuser"
+ENV PASSWORD "test"
 
 RUN apt update
 RUN apt install -y sudo vim iproute2 net-tools
@@ -12,7 +14,7 @@ RUN apt install -y g++ cmake python3-minimal
 	# password is "test"
 # ============================================
 RUN useradd -m $USERNAME 
-RUN echo $USERNAME:"test" | chpasswd
+RUN echo $USERNAME:$PASSWORD | chpasswd
 RUN usermod -aG sudo $USERNAME
 # ============================================
 
