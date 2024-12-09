@@ -19,7 +19,7 @@ RUN usermod -aG sudo $USERNAME
 # ============================================
 
 # in case of no password
-RUN echo "testuser ALL=NOPASSWORD:ALL" >> /etc/sudoers
+RUN echo "testuser ALL=NOPASSWD:ALL" >> /etc/sudoers
 
 # env below have to be set after "useradd" because setting this creates that dir
 
