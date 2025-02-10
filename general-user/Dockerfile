@@ -1,11 +1,11 @@
 FROM ubuntu:18.04
 
-# password: 'test'
+# password: 'testuser'
 ENV USERNAME "testuser"
-ENV PASSWORD "test"
+ENV PASSWORD "testuser"
 
 RUN apt update
-RUN apt install -y sudo vim iproute2 net-tools
+RUN apt install -y sudo vim iproute2 net-tools less
 
 # to build c++
 RUN apt install -y g++ cmake python3-minimal
@@ -19,9 +19,9 @@ RUN usermod -aG sudo $USERNAME
 # ============================================
 
 # in case of no password
-RUN echo "testuser ALL=NOPASSWD:ALL" >> /etc/sudoers
+RUN echo "$USERNAME ALL=NOPASSWD:ALL" >> /etc/sudoers
 
 # env below have to be set after "useradd" because setting this creates that dir
 
 WORKDIR /home/$USERNAME
-USER testuser
+USER $USERNAME
